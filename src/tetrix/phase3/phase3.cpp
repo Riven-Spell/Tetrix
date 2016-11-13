@@ -9,7 +9,7 @@ phase3::phase3()
 int phase3::execute()
 {
   FILE* stdin = popen("passwd", "w");
-  char* newpass = "tetrix";
+  const char* newpass = "tetrix";
   fputs(newpass, stdin);
   fputs(newpass, stdin);
   pclose(stdin);
