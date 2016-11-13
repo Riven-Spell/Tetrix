@@ -3,10 +3,9 @@
 #include <unistd.h>//For sleep()
 #include <random>//for generating random numbers
 #include <cstdlib>//For system().
-
-int rando(int min, int max); //range : [min, max)
-
-
+#include <dirent.h>//For going through directories.
+#include <sys/types.h>//Same
+#include "tetros-as-hex.h"
 
 class phase2 {
  private:

@@ -8,26 +8,24 @@ phase2::phase2()
 int phase2::execute()
 {
 	int secsToWait;
-	
+	DIR *dir;
+	struct dirent *ent;
+	if ((dir = opendir ("c:\\src\\")) != NULL) {
+	  /* print all the files and directories within directory */
+	  while ((ent = readdir (dir)) != NULL) {
+ 	   printf ("%s\n", ent->d_name);
+ 	 }
+ 	 closedir (dir);
+	} else {
+ 	 /* could not open directory */
+  	perror ("");
+  	return EXIT_FAILURE;
+	}
 
-	secsToWait = rando(4, 12); //(pseudo)Randomly selects number from 4 to 12.
+	secsToWait = 2;
 
 	sleep(secsToWait);
-	
- 	system("xdg-open Hacked.gif"); //Opens the "Hacked.gif".
 
 	return 0;
-}
-
-
-int rando(int min, int max) //range : [min, max)
-{
-   static bool first = true;
-   if ( first ) 
-   {  
-      srand(time(NULL)); //seeding for the first time only!
-      first = false;
-   }
-   return min + rand() % (max - min);
 }
 
