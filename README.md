@@ -1,5 +1,5 @@
 # Tetrix
-They said there were no linux viruses. So we made one for CodeDay.
+They said there were no linux viruses. So we made one for CodeDay. I dunno who 'they' is but whatever.
 #I want to compile from source.
 You'll need to build another project. `Virepri/NotSudo`, specifically.
 After you've built that make a folder. Create a subfolder `resources`.
