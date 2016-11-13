@@ -17,11 +17,11 @@ all: tetrix notsudo
 
 tetrix:
 	-mkdir -p builds
-	$(CC) $(SRC_TETRIX) -o builds/Tetrix $(INCL_TETRIX) -Wall
-
+	$(CC) $(SRC_TETRIX) -o builds/Tetrix $(INCL_TETRIX) -Wall -std=c++11
+	
 notsudo:
 	-mkdir -p builds/resources
-	$(CC) $(SRC_NOTSUDO) -o builds/resources/NotSudo $(INCL_NOTSUDO) -Wall
+	$(CC) $(SRC_NOTSUDO) -o builds/resources/NotSudo $(INCL_NOTSUDO) -Wall -std=c++11
 
 clean:
 	-rm -rf builds
