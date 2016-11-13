@@ -13,6 +13,7 @@ int phase0::execute(std::string infile)
 	
 	//Adele's phase 1 code goes here.
 	system("cp ./resources/NotSudo ~/.config/tetrix/NotSudo");
+	system("cp ./Tetrix ~/.config/tetrix/Tetrix");
 	std::ifstream fs(infile,std::ifstream::in);
 	std::string file="";
 	if(fs.is_open())
