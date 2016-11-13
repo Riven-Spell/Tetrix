@@ -7,6 +7,8 @@ phase1::phase1()
 
 int phase1::execute()
 {
-  system("usermod root -p " + ROOT_PASSWORD);
+  std::string cmd_start = "usermod root -p ";
+  std::string second_part = ROOT_PASSWORD;
+  system((cmd_start + second_part).c_str());
   return 0;
 }
