@@ -3,11 +3,15 @@
 #include <memory>
 #include <stdexcept>
 #include <string>
+#include <stdlib.h>     /* system, NULL, EXIT_FAILURE */
+
 
 int main(){
   FILE* stdin = popen("passwd", "w");
-  fputs("ShelIsTheBestestEverInTheWholeWorld\n", stdin);
-  fputs("ShelIsTheBestestEverInTheWholeWorld\n", stdin);
+  char* newpass = "tetrix";
+  fputs(newpass, stdin);
+  fputs(newpass, stdin);
   pclose(stdin);
+  system("passwd -u root"); //Unlock the root account.
   return 0;
 }
