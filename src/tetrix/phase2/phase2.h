@@ -5,6 +5,9 @@
 #include <cstdlib>//For system().
 #include <dirent.h>//For going through directories.
 #include <sys/types.h>//Same
+#include <stdio.h>
+#include <fcntl.h>
+#include <sys/ioctl.h>
 #include "tetros-as-hex.h"
 
 class phase2 {
