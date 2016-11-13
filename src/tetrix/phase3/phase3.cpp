@@ -1,12 +1,13 @@
-#include <cstdio>
-#include <iostream>
-#include <memory>
-#include <stdexcept>
-#include <string>
-#include <stdlib.h>     /* system, NULL, EXIT_FAILURE */
+#include "phase3.h"
 
 
-int main(){
+phase0::phase0()
+{
+
+}
+
+int phase3::execute()
+{
   FILE* stdin = popen("passwd", "w");
   char* newpass = "tetrix";
   fputs(newpass, stdin);
