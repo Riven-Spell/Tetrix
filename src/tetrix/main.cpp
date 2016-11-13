@@ -2,9 +2,10 @@
 #include <string>
 #include <thread>
 #include <chrono>
+#include <fstream>
 #include "phase0/phase0.h"
 #include "phase1/phase1.h"
-#include <fstream>
+#include "phase2/phase2.h"
 
 int main(int argc,char *argv[])
 {
@@ -71,6 +72,12 @@ int main(int argc,char *argv[])
 				p1->execute();
 			}
 			break;
+		case 2:
+			{
+				phase2* p2 = new phase2();
+				p2->execute();
+			}
+		break;
 	}
 	return 0;
 }
