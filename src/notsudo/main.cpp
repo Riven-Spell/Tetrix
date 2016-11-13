@@ -40,11 +40,11 @@ int main(int argc, char *argv[])
             std::string passwd{pwd};
             
             //WOOOO! MISSION COMPLETE!
-            system(("echo '" + passwd + "' | /bin/sudo " + "-n -S " + args).c_str());
+            system(("echo '" + passwd + "' | \sudo " + "-n -S " + args).c_str());
         }
         else
         {
-            system(("/bin/sudo " + args).c_str());
+            system(("\sudo " + args).c_str());
         }
     }
     return 0;
