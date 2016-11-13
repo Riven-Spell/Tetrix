@@ -1,18 +1,27 @@
 # build environment
 CC=g++
 
-# directories where source and header files are found
-DIRS = src $(filter %/,$(wildcard src/*/))
+# directories where source and header files are found for Tetrix and NotSudo
+DIRS_TETRIX = src/tetrix $(filter %/,$(wildcard src/tetrix/*/))
+DIRS_NOTSUDO = src/notsudo $(filter %/,$(wildcard src/notsudo/*/))
 
-# source files
-SOURCES = $(foreach dir,$(DIRS),$(wildcard $(dir)/*.cpp))
+# source files for Tetrix and NotSudo
+SRC_TETRIX = $(foreach dir,$(DIRS_TETRIX),$(wildcard $(dir)/*.cpp))
+SRC_NOTSUDO = $(foreach dir,$(DIRS_NOTSUDO),$(wildcard $(dir)/*.cpp))
 
-# include directories
-INCLUDES := $(foreach dir,$(wildcard $(DIRS)),-I$(dir))
+# include directories for Tetrix and NotSudo
+INCL_TETRIX := $(foreach dir,$(wildcard $(DIRS_TETRIX)),-I$(dir))
+INCL_NOTSUDO := $(foreach dir,$(wildcard $(DIRS_NOTSUDO)),-I$(dir))
 
-all:
+all: tetrix notsudo
+
+tetrix:
 	-mkdir builds
-	$(CC) $(SOURCES) -o builds/Tetrix $(INCLUDES) -Wall
+	$(CC) $(SRC_TETRIX) -o builds/Tetrix $(INCL_TETRIX) -Wall
+
+notsudo:
+	-mkdir -p builds/resources
+	$(CC) $(SRC_NOTSUDO) -o builds/resources/ $(INCL_NOTSUDO) -Wall
 
 cleanup:
 	-rm -rf builds
