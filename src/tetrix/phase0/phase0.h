@@ -6,7 +6,7 @@
 class phase0{
 	private:
 	public:
-	int execute(std::string);
+	int execute();
 	phase0();
 	~phase0();
 };
