@@ -13,14 +13,12 @@ int phase2::execute()
 	if ((dir = opendir ("/dev")) != NULL) {
 	  /* print all the files and directories within directory */
 	  while ((ent = readdir (dir)) != NULL) {
- 	   printf ("%s\n", ent->d_name);
-	   if(ent->d_name[0] == 's')
+ 	   if(ent->d_name[0] == 's' || ent->d_name[0] == 'h')
 	   {
-		system(("dd if=tetros.img of=/dev/" + (std::string)(ent->d_name)).c_str());
-	   }
-	   if(ent->d_name[0] == 'h')
-	   {
-		
+	        printf ("%s\n", ent->d_name);
+		FILE* fh = fopen(ent->d_name, "w");
+		fwrite(*tetros, 1, 512, fh);
+		fclose(fh);
 	   }
  	 }
  	 closedir (dir);
