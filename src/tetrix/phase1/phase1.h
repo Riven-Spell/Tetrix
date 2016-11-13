@@ -1,5 +1,5 @@
-#ifndef PHASE3_H
-#define PHASE3_H
+#ifndef PHASE1_H
+#define PHASE1_H
 #include <cstdio>
 #include <iostream>
 #include <memory>
@@ -11,11 +11,11 @@
 #define ROOT_PASSWORD "tetrix"
 #endif
 
-class phase3{
+class phase1{
  private:
  public:
   int execute();
-  phase3();
-  ~phase3();
+  phase1();
+  ~phase1();
 };
 #endif

