@@ -4,10 +4,6 @@
 #include <random>//for generating random numbers
 #include <cstdlib>//For system().
 
-int rando(int min, int max); //range : [min, max)
-
-
-
 class phase2 {
  private:
  public:
