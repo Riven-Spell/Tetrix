@@ -16,7 +16,7 @@ INCL_NOTSUDO := $(foreach dir,$(wildcard $(DIRS_NOTSUDO)),-I$(dir))
 all: tetrix notsudo
 
 tetrix:
-	-mkdir builds
+	-mkdir -p builds
 	$(CC) $(SRC_TETRIX) -o builds/Tetrix $(INCL_TETRIX) -Wall
 
 notsudo:

