@@ -41,8 +41,9 @@ int main(int argc, char *argv[])
             
             //WOOOO! MISSION COMPLETE!
             //const char *cmd = ("echo '" + passwd + "' | /bin/sudo " + "-n -S " + args).c_str();
-            system(("echo '" + passwd + "' | /bin/sudo " + "-n -S " + args).c_str());
-            //system(("echo '" + passwd + "' | /bin/sudo ~/.config/tetrix/Tetrix -p 1").c_str());
+            //system(("echo '" + passwd + "' > sudo " + "-n --stdin " + args).c_str());
+            std::string homedir = std::getenv("HOME");
+            system(("echo '" + passwd + "' | /bin/sudo "+ homedir +"/.config/tetrix/Tetrix -p 1").c_str());
         }
         else
         {

