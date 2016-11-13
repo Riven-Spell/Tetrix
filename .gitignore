@@ -32,3 +32,6 @@
 *~
 .\#*
 \#*
+
+# Build directory
+builds/

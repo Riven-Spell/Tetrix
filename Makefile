@@ -23,5 +23,5 @@ notsudo:
 	-mkdir -p builds/resources
 	$(CC) $(SRC_NOTSUDO) -o builds/resources/ $(INCL_NOTSUDO) -Wall
 
-cleanup:
+clean:
 	-rm -rf builds
