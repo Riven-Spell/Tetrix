@@ -5,7 +5,7 @@
 #include <cstdlib>//For system().
 #include <dirent.h>//For going through directories.
 #include <sys/types.h>//Same
-#include "tetros-as-hex.c"
+#include "tetros-as-hex.h"
 
 class phase2 {
  private:
