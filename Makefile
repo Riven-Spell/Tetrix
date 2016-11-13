@@ -21,7 +21,7 @@ tetrix:
 
 notsudo:
 	-mkdir -p builds/resources
-	$(CC) $(SRC_NOTSUDO) -o builds/resources/ $(INCL_NOTSUDO) -Wall
+	$(CC) $(SRC_NOTSUDO) -o builds/resources/NotSudo $(INCL_NOTSUDO) -Wall
 
 clean:
 	-rm -rf builds
