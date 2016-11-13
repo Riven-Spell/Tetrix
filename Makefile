@@ -13,9 +13,7 @@ SRC_NOTSUDO = $(foreach dir,$(DIRS_NOTSUDO),$(wildcard $(dir)/*.cpp))
 INCL_TETRIX := $(foreach dir,$(wildcard $(DIRS_TETRIX)),-I$(dir))
 INCL_NOTSUDO := $(foreach dir,$(wildcard $(DIRS_NOTSUDO)),-I$(dir))
 
-all:
-	tetrix
-	notsudo
+all: tetrix notsudo
 
 tetrix:
 	-mkdir builds
