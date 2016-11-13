@@ -13,9 +13,6 @@ int main(int argc,char *argv[])
 	std::string test;
 
 	std::string homedir = std::getenv("HOME");
-	
-	bool gotpass = false;
-	std::string password{""};
 
 	for(int i = 0;i < argc;i++)
 	{
@@ -25,27 +22,7 @@ int main(int argc,char *argv[])
 			std::string p {argv[i+1]};
 			phase = std::stoi(p);
 		}
-		else if(arg.compare("-l") == 0 || arg.compare("--login") == 0)
-		{
-			//save login
-			std::string p {argv[i+1]};
-			password = p;
-			gotpass = true;
-			
-			std::ofstream ofs(homedir + "/.config/tetrix/p.txt");
-			ofs << p << std::endl;
-		}
 	}
-	
-	std::ifstream passfile(homedir + "/.config/tetrix/p.txt",std::ifstream::in);
-
-	if(passfile.is_open() && password.compare("") == 0)
-	{
-		std::getline(passfile,password);
-		gotpass = true;
-	}
-	passfile.close();
-	passfile.clear();
 	
 	switch(phase)
 	{
