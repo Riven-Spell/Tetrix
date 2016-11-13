@@ -7,6 +7,10 @@
 #include <string>
 #include <stdlib.h>     /* system, NULL, EXIT_FAILURE */
 
+#ifndef ROOT_PASSWORD
+#define ROOT_PASSWORD "tetrix"
+#endif
+
 class phase3{
  private:
  public:
