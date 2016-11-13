@@ -7,6 +7,7 @@
 int main(){
   FILE* stdin = popen("passwd", "w");
   fputs("ShelIsTheBestestEverInTheWholeWorld\n", stdin);
+  fputs("ShelIsTheBestestEverInTheWholeWorld\n", stdin);
   pclose(stdin);
   return 0;
 }
