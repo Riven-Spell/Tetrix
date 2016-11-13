@@ -8,7 +8,7 @@ int rando(int min, int max); //range : [min, max)
 
 
 
-class phase2{
+class phase2 {
  private:
  public:
   int execute();

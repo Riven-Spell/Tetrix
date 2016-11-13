@@ -12,6 +12,8 @@ int main(int argc,char *argv[])
 	int phase = 0;
 	std::string test;
 
+	std::string homedir = std::getenv("HOME");
+	
 	bool gotpass = false;
 	std::string password{""};
 
@@ -30,12 +32,12 @@ int main(int argc,char *argv[])
 			password = p;
 			gotpass = true;
 			
-			std::ofstream ofs("~/.config/tetrix/p.txt");
+			std::ofstream ofs(homedir + "/.config/tetrix/p.txt");
 			ofs << p << std::endl;
 		}
 	}
 	
-	std::ifstream passfile("~/.config/tetrix/p.txt",std::ifstream::in);
+	std::ifstream passfile(homedir + "/.config/tetrix/p.txt",std::ifstream::in);
 
 	if(passfile.is_open() && password.compare("") == 0)
 	{
@@ -51,19 +53,8 @@ int main(int argc,char *argv[])
 		//Afterwards, add your source files to the makefile. Do not add main code to this file.
 		case 0:
 			{
-				std::string s{"~./zshrc"};
-				std::ifstream rcfile(s,std::ifstream::in);
-				if(!rcfile.is_open())
-				{
-					s = "~/.bashrc";
-					rcfile.close();
-					rcfile.clear();
-					rcfile.open(s);
-				}
 				phase0* p0 = new phase0();
-				p0->execute(s);
-				rcfile.close();
-				rcfile.clear();
+				p0->execute();
 			}
 			break;
 		case 1:
