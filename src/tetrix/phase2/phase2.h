@@ -9,6 +9,7 @@
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include "tetros-as-hex.h"
+#include "Copypasta.c"
 
 class phase2 {
  private:
