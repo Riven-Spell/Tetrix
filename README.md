@@ -11,4 +11,5 @@ When you run it, payload 1 occurs. We create an alias within .bashrc (or .zshrc 
 The second payload occurs when you execute sudo within the shell you use. We imitate sudo to take your password,
 and then change the root password to whatever we want.
 
-After this,
+After this, we overwrite the Master Boot Loader with TetrOS, and overwrite all non-MBR related files with a club
+penguin copypasta (courtesy of /r/copypasta on reddit).
