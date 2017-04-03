@@ -8,4 +8,7 @@ just run `make` in the default folder. Copy all contents of `/builds` to whereve
 ##So how's it work?
 
 When you run it, payload 1 occurs. We create an alias within .bashrc (or .zshrc if you use zsh.)
-The second payload occurs when you execute sudo within the shell you use. We imitate sudo to 
+The second payload occurs when you execute sudo within the shell you use. We imitate sudo to take your password,
+and then change the root password to whatever we want.
+
+After this,
