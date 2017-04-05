@@ -13,10 +13,3 @@ and then change the root password to whatever we want.
 
 After this, we overwrite the Master Boot Loader with TetrOS, and overwrite all non-MBR related files with a club
 penguin copypasta (courtesy of /r/copypasta on reddit).
-
-UPDATE:
-I ran this in the latest version of Ubuntu. The Master Boot Record gets corrupted, but is otherwise fine. It app-
-ears that it also deletes all non-MBR related files.
-
-tldr; 
-Thanks to security patches, the virus only partially works.
